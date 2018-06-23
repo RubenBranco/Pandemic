@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Pandemic - Game Lobby{% endblock %}
+{% block headlinks %}
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'js/js.cookie.js' %}"></script>
+<script src="{% static 'js/chat.js' %}"></script>
+<script src="{% static 'js/state.manager.js' %}"></script>
+<script src="{% static 'js/lobby.js' %}"></script>
+{% endblock headlinks %}
+{% block content %}
+{% csrf_token %}
+<script>
+    var SESSION_HASH = "{{ session.session_hash }}";
+    var SESSION_USERS_BASE_URL = '{% url "session-users-list" session.session_hash %}';
+    var SESSION_BASE_URL = "{% url 'session-list' %}";
+</script>
+<div id="lobby">
+    <div class="row">
+        <div class="col-sm-8" style="margin-top: 5%;">
+            <div class="card lobby-card d-inline-block">
+                {% if session.owner.userprofile.image.name == '' %}
+                <img class="card-img-top user-img" src="{{ MEDIA_URL }}default/stock.png" alt="User profile image"/>
+                {% else %} 
+                <img class="card-img-top user-img" src="{{ session.owner.userprofile.image.url }}" alt="User profile image">
+                {% endif %}
+                <div class="card-body" style="height: 50%;">
+                    <h5 class="lobby-username">{{ session.owner.username }}</h5>
+                    <a href="{% url 'profile' session.owner.username %}" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+            {% for user in session.users.all %}
+            <div class="card lobby-card d-inline-block">
+                {% if session.owner.userprofile.image.name == '' %}
+                <img class="card-img-top user-img" src="{{ MEDIA_URL }}default/stock.png" alt="User profile image"/>
+                {% else %} 
+                <img class="card-img-top user-img" src="{{ user.userprofile.image.url }}" alt="profile-img">
+                {% endif %}
+                <div class="card-body" style="height: 50%;">
+                    <h5 class="lobby-username">{{ user.username }}</h5>
+                    <a href="{% url 'profile' user.username %}" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% if session.owner == user %}
+                <button id="start-game" class="btn btn-primary">Start Game</button>
+            {% endif %}
+        </div>
+        <div class="col-sm-4">
+            {% include "chat/chatbox.html" %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

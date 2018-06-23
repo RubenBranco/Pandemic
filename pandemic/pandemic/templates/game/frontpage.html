@@ -1,0 +1,51 @@
+{% extends 'base.html' %} 
+{% load staticfiles %}
+{% block headlinks %}
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'js/js.cookie.js' %}"></script>
+<script src="{% static 'js/chat.js' %}"></script>
+<script src="{% static 'js/state.manager.js' %}"></script>
+<script src="{% static 'js/game.frontpage.js' %}"></script>
+{% endblock headlinks %}
+{% block title %}Pandemic Central{% endblock %} 
+{% block content %}
+{% csrf_token %}
+<script>
+    var SESSION_BASE_URL = "{% url 'session-list' %}";
+</script>
+{% if full %} 
+<div class="alert alert-info" role="alert">
+    That game session is full.
+</div>
+{% endif %}
+<a class="btn btn-primary create-room" href="{% url 'game_create' %}" role="button">Create game</a>
+{% for session in qs %}
+    {% if not session.has_started and session.users.all|length|add:1 < session.max_players %}
+        <div class="col-sm-8" id="room_{{ session.session_hash }}">
+            <div class="card game-room" style="margin-bottom: 15px; margin-top: 10%;">
+
+                <div class="card-header">
+                    <span class="card-title" style="font-weight: bold;">Waiting for players</span>
+                    {% if session.password == '' %}
+                    <span><img class="lock" src="{% static 'img/unlocked.png' %}" alt="unlocked"></span>
+                    {% else %}
+                    <span><img class="lock" src="{% static 'img/locked.png' %}" alt="locked"></span>
+                    {% endif %}
+                </div>
+                
+                <div class="card-body" style="height: 10vh !important;">
+                    <span class="card-title session-name">{{ session.name }}</span>
+                    <div class="card-text game-info">
+                        <span class="room-space players">{{ session.users.all|length|add:"1" }}</span>
+                        <span class="room-space dash">/</span>
+                        <span class="room-space maxplayers">{{ session.max_players }}</span>
+                        <a href="{% url 'game_session' session.session_hash %}">
+                            <img class="play-btn" data-toggle='modal' data-target="#password-modal" src="{% static 'img/play-button256.png' %}" style="cursor: pointer;"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+{% endblock content %}

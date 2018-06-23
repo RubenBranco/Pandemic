@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}{{ req_username }}{% endblock title %}
+{% block content %}
+
+<h1 class="grey username">{{ req_user.username }}</h1>
+{% if is_owner %}
+<span class="refined_cenas" style="margin-left: 20px;"><a class="grey" href="{% url 'edit_profile' %}">Edit Profile</a></span>
+<span class="refined_cenas"><a class="grey" href="{% url 'change_password' %}">Change Password</a></span>
+{% endif %}
+
+{% if req_user.userprofile.image.name == '' %}
+{% comment %}
+imagem de user
+{% endcomment %}
+<img id="profile_img" class="profile_img refined_cenas" src="{{ MEDIA_URL }}default/stock.png" alt="User profile image"/>
+{% else %}
+<img id="profile_img" class="profile_img refined_cenas" src="{{ req_user.userprofile.image.url }}" alt="User profile image"/>
+{% endif %}
+
+{% block fields %}
+<div class="profile_content">
+<p class="grey refined_cenas">First name: {{ req_user.first_name }}</p>
+<p class="grey refined_cenas">Last name: {{ req_user.last_name }}</p>
+<p class="grey refined_cenas">gender: {{ req_user.userprofile.gender }}</p>
+<p class="grey refined_cenas">date of birth: {{ req_user.userprofile.dob }}</p>
+<p class="grey refined_cenas">country: {{ req_user.userprofile.country.name }}</p>
+{% if req_user.userprofile.country.name == "Portugal" %}
+<p class="grey refined_cenas">district: {{ req_user.userprofile.district }}</p>
+<p class="grey refined_cenas">county: {{ req_user.userprofile.county }}</p>
+</div>
+{% endif %}
+
+{% endblock fields %}
+{% endblock content %}

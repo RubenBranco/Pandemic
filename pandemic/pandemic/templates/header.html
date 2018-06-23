@@ -1,0 +1,57 @@
+{% spaceless %}
+{% load staticfiles %}
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 10;">
+    {% if user.username %}
+    <a class="navbar-brand" href="{% url 'frontpage' %}" style="margin-right: -2rem !important;">
+        <img src="{% static 'img/gasmask.png' %}" alt="LogoSmall" style="width: 50%;">
+    </a>
+    <a class="navbar-brand" href="{% url 'frontpage' %}">
+        <img class="logo2" src="{% static 'img/pandemic_logo.png' %}" alt="LogoLarge">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+    <ul class="navbar-nav" style="margin-right: 0%;">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' user.username %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt;">HELLO {{ user.username }}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'howtoplay' %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt;">RULES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'aboutus' %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt; margin-left: 10px;">ABOUT US</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt; margin-left: 10px;">LOGOUT</a>
+        </li>
+    </ul>
+    </div>
+    {% else %}
+    
+    <a class="navbar-brand" href="{% url 'frontpage' %}"  style="margin-right: -2rem !important;">
+        <img src="{% static 'img/gasmask.png' %}" alt="LogoSmall" style="width: 50%;">
+    </a>
+    <a class="navbar-brand" href="{% url 'frontpage' %}">
+        <img class="logo2" src="{% static 'img/pandemic_logo.png' %}" alt="LogoLarge">
+    </a>
+    <div class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'howtoplay' %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt;">RULES</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'aboutus' %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt; margin-left: 10px;">ABOUT US</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt; margin-left: 10px;">LOGIN</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 18pt; margin-left: 10px;">REGISTER</a>
+        </li>
+    </ul>
+    </div>           
+    {% endif %}
+</nav>
+
+{% endspaceless %}

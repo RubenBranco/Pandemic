@@ -1,0 +1,18 @@
+{% extends "base_email.html" %}
+
+{% block content %}
+Hi {{ user.username }},
+
+Thank you for signing up to our website, start saving the world today.
+
+To confirm your account, click the link below:
+
+http://{{ domain }}{% url 'registration_activate' uidb64=uid token=token %}
+
+If you don't know what this email is about, then someone has probably entered your email 
+address by mistake. Sorry about that.
+
+Best regards,
+Grupo ASW010
+
+{% endblock content %}

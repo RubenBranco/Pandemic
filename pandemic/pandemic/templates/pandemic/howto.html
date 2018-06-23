@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Pandemic - How to play{% endblock title %}
+{% block content%}
+<div id ="rules">
+    <div id="titles">
+        <h1>How to play Pandemic</h1>
+        <h2>The rules</h2>
+    </div>
+    <div id="game-rules">
+        <p >
+            The goal of Pandemic is for the players, in their randomly selected roles, to work cooperatively to stop the spread of four diseases and cure them before a pandemic occurs. Pandemic setup consists of a game board representing a network connecting 48 cities on the map of the earth, two decks of cards (Player cards and Infection cards), four colors of cubes (each representing a different disease), six Research Stations, and a pawn for each player. The Player cards include cards with each city name (the same as those on the board); Special Event cards, which can be played at specific times to take beneficial actions; and Epidemic cards. Infection cards consist of one card for each city on the board and a color of the disease that will start there. At the start of the game, Infection cards are randomly drawn to populate the board with infections, from 1 to 3 cubes for a number of cities. Players start at Atlanta, the home of the Centers for Disease Control, and are given a random role and a number of Player cards. On each turn, a player can take 4 actions, consisting of any combination of the following:
+        </p>
+    
+        <ol>
+            <li>Movement, as per the following four options:</li>
+                <ul>
+                    <li>Between interconnected cities (car and ferry travel)</li>
+                    <li>To a city that the player holds that Player card of, discarding the Player card (direct flight)</li>
+                    <li>To any city if the player is currently in one of the cities they hold the card of, discarding the Player card (charter flight)</li>
+                    <li>From a city with a research lab to any city with a research lab, without discarding a city card (shuttle flight)</li>
+                </ul>
+            <li>Sharing information with another player, by being in the same city as that player and either giving or receiving the Player card representing that city</li>
+            <li>Treating one unit of infection from a city that the player is presently in, removing a cube from that city</li>
+            <li>Constructing a research lab in a city that the player holds the city card for (discarding that card afterwards)</li>
+            <li>Finding the cure by being in a city with a research lab and holding five Player cards of the same color. Finding a cure does not stop further infection of that disease until all cubes of that color are removed from the board; from then on, drawing an Infection card of a color that is eradicated will result in no change to the board's state</li>
+        </ol>
+        
+    </div>
+    <div id="game-view">
+        <h2>The game view</h2>
+        <p>
+            This is the game map on the first half of the game screen. Every dot represents a city, whenever you want you can click on it to see which city it is. An important note is that the map is draggable, you can move it around to see the full map if it doesn't fit within your screen. The blue bar on the top left of the map its your game commands where you can choose the options allowed in the game explained in the rules section. The cards shown on the bottom part of the map are your game cards in the given moment you can click them to trigger the action referred in the description of the card.
+        </p>
+        <img src="{% static 'img/rules1.jpg' %}" alt="The map" style="width:95%;">
+        <p>The second half has the chat where you can just type in you message and send it and everyone will see it. Whenever you want to check the other players' cards just click on the button with their names and to hide them, click again</p>
+        <img src="{% static 'img/rules2.jpg' %}" alt="The chat" style="width:95%;">
+    </div>
+
+    <div id="goodbye" style="text-align: center;">
+        <h1>Hope you enjoy playing the game!</h1>
+    </div>
+    
+</div>
+{% endblock content %}

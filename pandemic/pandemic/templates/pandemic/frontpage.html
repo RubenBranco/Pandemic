@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Pandemic{% endblock %}
+{% block content %}
+<video autoplay muted loop id="bg-video">
+    <source src="{% static 'img/bg_pandemic.mp4' %}" type="video/mp4" class="video">
+    Your browser does not support HTML5 video
+</video>
+
+<div class="mainContent">
+    <h1 id="title">Salva o mundo!</h1>
+    <a href="{% url 'login' %}"><button id="play-btn">PLAY</button></a>
+</div>
+
+
+{% endblock content %}

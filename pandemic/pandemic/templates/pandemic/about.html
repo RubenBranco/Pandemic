@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block headlinks %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock headlinks %}
+
+{% block title %}Pandemic - About Us{% endblock %}
+{% block content %}
+<div id="aboutUs">
+    <div id="cardRuben" class="card d-inline-block about-card">
+        <img src="{% static 'img/ruben-avatar.png' %}" alt="Ruben" style="width:100%">
+        <h1>Ruben Branco</h1>
+        <p>Faculdade de Ciencias da Universidade de Lisboa</p>
+        <a href="https://github.com/RubenBranco"><i class="fa fa-github fa-4x about-a"></i></a>
+        <p><button class="asw010">ASW010</button></p>
+    </div>
+
+    <div id="cardRegueira" class="card d-inline-block about-card">
+        <img src="{% static 'img/regueira-avatar.png' %}" alt="Joao" style="width:100%">
+        <h1>Joao Regueira</h1>
+        <p>Faculdade de Ciencias da Universidade de Lisboa</p>
+        <a href="https://github.com/JoaoRegueira"><i class="fa fa-github fa-4x about-a"></i></a>
+        <p><button class="asw010">ASW010</button></p>
+    </div>
+
+    <div id="cardSantos" class="card d-inline-block about-card">
+        <img src="{% static 'img/santos-avatar.png' %}" alt="Goncalo" style="width:100%">
+        <h1>Goncalo Santos</h1>
+        <p>Faculdade de Ciencias da Universidade de Lisboa</p>
+        <a href="https://github.com/GoncaloBISantos"><i class="fa fa-github fa-4x about-a"></i></a>
+        <p><button class="asw010">ASW010</button></p>
+    </div>
+</div>
+{% endblock content %}

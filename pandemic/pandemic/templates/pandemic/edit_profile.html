@@ -1,0 +1,54 @@
+{% extends 'pandemic/profile.html' %}
+{% load staticfiles %}
+{% block title %}Edit Profile{% endblock title %}
+{% block headlinks %}
+<link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock headlinks %}
+
+{% block fields %}
+<div class="centered">
+<form method="post" enctype="multipart/form-data" action="{% url 'edit_profile' %}" id="edit_prof">
+    {% csrf_token %}
+    <p>{{ profile_form.image }}</p>
+    {% for error in profile_form.image.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    <p>First name:</p> {{ user_form.first_name }}
+    {% for error in user_form.first_name.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    <p>Last name:</p> {{ user_form.last_name }}
+    {% for error in user_form.last_name.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    <p>Gender:</p> {{ profile_form.gender }}
+    {% for error in profile_form.gender.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    <p>Date of birth:</p> {{ profile_form.dob }}
+    {% for error in profile_form.dob.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    <p>Country:</p> {{ profile_form.country }}
+    {% for error in profile_form.country.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    {% if user.userprofile.country.name == 'Portugal' %}
+        <script>
+            $.ajax({type:'GET', url:'/api/districts/'}).done(function(data){fillDistrict(data, '{{ user.userprofile.district }}', '{{ user.userprofile.county }}')});
+        </script>
+    {% endif %}
+    <p>District:</p> {{ profile_form.district }}
+    {% for error in profile_form.district.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    <p>County:</p> {{ profile_form.county }}
+    {% for error in profile_form.county.errors %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    <input type="submit" />
+</form>
+</div>
+{% endblock fields %}

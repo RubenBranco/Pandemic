@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block headlinks %}
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'js/js.cookie.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/leaflet.css' %}">
+<script src="{% static 'js/leaflet.js' %}"></script>
+<script src="{% static 'js/chat.js' %}"></script>
+<script src="{% static 'js/state.manager.js' %}"></script>
+<script src="{% static 'js/map.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/game.css' %}">
+<script src="{% static 'js/game.js' %}"></script>
+{% endblock headlinks %}
+{% block content %}
+{% csrf_token %}
+<script>
+    var CITY_BASE_URL = "{% url 'city-list' %}";
+    var SESSION_HASH = "{{ session.session_hash }}";
+    var START_DATE = moment("{{ session.start_time|date:'c' }}");
+    var SESSION_STATE_BASE_URL = "{% url 'session-state-list' session.session_hash %}";
+    var SESSION_USERS_BASE_URL = '{% url "session-users-list" session.session_hash %}';
+    var SESSION_OWNER_BASE_URL = "{% url 'session-owner-list' session.session_hash %}";
+    var SESSION_BASE_URL = "{% url 'session-list' %}";
+    var PLAYER_STATE_BASE_URL = "{% url 'player-state-list' session.session_hash %}";
+    var CITY_STATE_BASE_URL = "{% url 'city-state-list' session.session_hash %}";
+    var CARD_STATE_BASE_URL = "{% url 'card-state-list' session.session_hash %}";
+    var CURE_STATE_BASE_URL = "{% url 'cure-state-list' session.session_hash %}";
+    var DISEASE_STATE_BASE_URL = "{% url 'disease-state-list' session.session_hash %}";
+    var PAWN_BASE_URL = "{% url 'pawn-list' %}";
+    var USERNAME = "{{ user.username }}";
+    var USER_ID = "{{ user.id }}";
+    var CARD_BASE_URL = "{% url 'card-list' %}";
+</script>
+
+<div class="row">
+    <div class="col-sm-8">
+        <div id="map"></div>
+    </div>
+    <div class="col-sm-4">
+        {% include "chat/chatbox.html" %}
+    </div>
+</div>
+<div id="cards">
+
+</div>
+<div class="row" id="commands">
+    <div class="col-lg-2 d-inline-block">
+        <button id="move" data-toggle="modal" data-target="#moveModal" class="btn btn-primary">Move</button>
+    </div>
+    <div class="col-lg-2 d-inline-block">
+        <button id="treat" class="btn btn-primary">Treat</button>
+    </div>
+    <div class="col-lg-2 d-inline-block">
+        <button id="cure" class="btn btn-primary">Cure</button>
+    </div>
+    <div class="col-lg-2 d-inline-block">
+        <button id="build" class="btn btn-primary">Build</button>
+    </div>
+    <div class="col-lg-2 d-inline-block">
+        <button id="share" class="btn btn-primary">Share</button>
+    </div>
+    <div class="col-lg-2 d-inline-block">
+        <button id="pass" class="btn btn-primary">Pass</button>
+    </div>
+</div>
+<div class="modal fade" id="moveModal" tabindex="-1" role="dialog" aria-labelledby="moveModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="moveModalLabel">Move Actions</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body" id="moveModalBody"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shareModalLabel">Share</h5>
+            </div>
+            <div class="modal-body" id="shareModalBody"><ul></ul></div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="treatModal" tabindex="-1" role="dialog" aria-labelledby="treatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="treatModalLabel">Treat</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body" id="treatModalBody"><ul></ul></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="stats">
+    <table class="game-table">
+        <thead>
+            <tr>
+                <th>Started at</th>
+                <th>Player Turn</th>
+                <th>Moves left</th>
+                <th>Infection Rate</th>
+                <th>Outbreak Count</th>
+                <th>Cures Found</th>
+                <th>Diseases erradicated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="startedAt"></td>
+                <td id="playerTurn"></td>
+                <td id="movesLeft"></td>
+                <td id="infectionRate"></td>
+                <td id="outbreakCount"></td>
+                <td id="CuresFound"></td>
+                <td id="DiseasesErradicated"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row" id="allCards">
+    <button type="button" class="btn btn-info player-btn">{{ session.owner.username }}</button>
+    <div class="col-lg-3 allCards-owner" id="allCards-{{ session.owner.username }}" style="display: none;">
+    </div>
+    {% for player in session.users.all %}
+        <button type="button" class="btn btn-info player-btn">{{ player.username }}</button>
+        <div class="col-lg-3 allCards-player" id="allCards-{{ player.username }}" style="display: none;">
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

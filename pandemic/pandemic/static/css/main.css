@@ -1,0 +1,687 @@
+#home{
+    background: #1f2833;
+    background: linear-gradient(to right, #000000, #062f4f, #000000);
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.center {
+    margin-top: 3%;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+}
+
+.center img{
+    display: block;
+    width: 90%;
+}
+
+.center p{
+    font-size: 30px;
+}
+
+.marginTop{
+    margin-top: 10%;
+}
+
+.bottomCorner{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+}
+
+.bottomCornerLeft{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+}
+
+.z-index-1 {
+  z-index: -1;
+}
+
+.nav-link img{
+    width: 10%;
+}
+
+#container_home{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    z-index: 2;
+    background-color: transparent;
+    border: 0;
+}
+
+#container_home label{
+  color: aliceblue;
+}
+
+#container_home span{
+  color: black;
+}
+
+#container_home span .select2{
+  color: black !important;
+}
+
+#container_home p{
+  margin-top: 10px;
+}
+
+#cardTitle {
+  position: absolute;
+  top: 25%;
+  left: 43%;
+}
+
+#bg_img {
+  height: 25vh;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#bg_img_reg {
+  height: 25vh;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#reg-alert {
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.login-alert {
+    margin-top: 11vh;
+}
+
+.card-login {
+  width: 50%;
+  height: 40vh;
+  margin: 0 auto;
+}
+
+#submit-btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#register_form > label {
+    display: block;
+    margin-top: 2%;
+}
+
+#register_form > input {
+    width:100%;
+}
+
+#register_form > select {
+    width:100%;
+}
+
+#register_form > input:last-of-type {
+    margin-top: 5%;
+}
+
+.url{
+    color: #2a31f1 !important;
+}
+
+.url:visited{
+    color: #3399ff !important;
+}
+
+#logInForm form label{
+    display: block;
+    text-decoration: none; 
+    color:black;
+}
+
+#logInForm form input{
+    width:100%
+}
+
+#resetPass{
+    color: aliceblue;
+}
+
+
+.left_corner_menu{
+    float:right;
+    margin-left: 70%;
+}
+
+#id_first_name {
+    float: left;
+    clear: left;
+}
+
+#id_last_name {
+    float: right;
+    clear: right;
+}
+
+#id_gender {
+    float: left;
+    clear: left;
+}
+
+#id_dob{
+    float: right;
+    clear: right;
+}
+
+
+
+.logo {
+    margin-left: 34%;
+    margin-top: -20%;
+    width: 30%;
+}
+
+.left_corner_menu a:first-child img{
+    width: 50%;
+    padding: 20px;
+}
+
+.left_corner_menu a img{
+    width: 39%;
+    background-color: #1f2833;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.logo_right{
+    width: 110%;
+}
+
+.section {
+    border-radius: 5%
+}
+
+.main-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-nav-item {
+    text-decoration: none;
+    display: inline;
+}
+
+.item-left {
+    width: 10%;
+}
+
+.item-right{
+    width: 10%;
+}
+
+.item-center{
+    width: 20%
+}
+
+.left_corner_menu_loged{
+    margin-left: 70%;
+    width: 62%;
+}
+
+.left_corner_menu_loged a{
+    background-color: #1f2833;
+    border: 2px solid black;
+    display: block;
+    padding: 10px;
+    color: #c5c6c7;
+}
+
+.centered{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.reset_pass label{
+    display: block;
+    color: #c5c6c7;
+}
+
+.reset_pass input{
+    display: block;
+    margin-top: 10px;
+}
+
+.heh{
+    width: 17%;
+    background-color: #1f2833;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+#edit_prof p{
+    display: block;
+    color: #c5c6c7;
+}
+
+#edit_prof input{
+    width: 100%;
+}
+
+#edit_prof input:last-of-type{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#edit_prof > span{
+    width:100% !important;
+}
+
+
+.block{
+    display: block;
+}
+
+.grey{
+    color: #c5c6c7 !important;
+}
+
+.profile_img{
+    max-width: 300px;
+    border-radius: 100%;
+}
+
+.refined_cenas{
+    background-color: #1f2833;
+    border: 2px solid black;
+    padding: 20px;
+    width: 30%;
+}
+
+.username{
+    display: inline-block;
+}
+
+#profile_img {
+    position: absolute;
+    left: 78%;
+    top: 30%;
+}
+.dude{
+    position: fixed;
+    bottom: 45%;
+    right: 0;
+    width: 20%;
+    margin-right: 2%;
+}
+
+.virus{
+    position: fixed;
+    bottom: 45%;
+    left: 0;
+    width: 18%;
+    margin-left: 2%;
+}
+.profile_content{
+    margin-top: 4%;
+}
+
+#change_password label{
+    display: block;
+    color: #c5c6c7 !important;
+}
+
+#change_password input{
+    display: block;
+}
+
+#change_password input:last-of-type{
+    margin-top: 20px;
+}
+
+.bg-grey {
+    background-color: transparent;
+    border: 1px solid #66fcf1;
+}
+
+#bg-video{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#bg-video .video {
+    height: 100%;
+    width: 100;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.mainContent {
+    position: fixed;
+    background: transparent;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20%;
+}
+
+#play-btn{
+    width: 15%;
+    font-size: 32pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px;
+    border: none;
+    background: #1f2833;
+    color: aliceblue;
+    cursor: pointer;
+    margin-left: 40%;
+}
+
+#play-btn:hover{
+    background: #66fcf1;
+    color: black
+}
+
+#title{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 82pt;
+    margin-top: -10%;
+    margin-bottom: 5%;
+    margin-right: 2%;
+}
+
+
+#navbar li{
+    list-style: none;
+}
+
+.nav-item:hover{
+    transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+}
+
+
+.text-aliceblue {
+    color:aliceblue !important;
+}
+
+.game-info {
+    float: right;
+}
+
+.play-btn {
+    margin-left: 15px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 60%;
+}
+
+.players {
+    font-weight: bold;
+    font-size: 50px;
+    position: absolute;
+    right: 135px;
+    bottom: 14px;
+}
+
+.dash {
+    font-size: 36px;
+    position: absolute;
+    right: 115px;
+    bottom: 23px;
+}
+
+.maxplayers {
+    font-size: 24px;
+    position: absolute;
+    right: 100px;
+    bottom: 23px;
+}
+
+.session-name{
+    font-size: 70px;
+    position: absolute;
+    left: 0;
+    top: 38px;
+}
+
+.lock{
+  float: right;  
+}
+
+.create-room {
+    position: absolute;
+    left: 30px;
+    top: 123px;
+}
+
+.lobby-username {
+    text-align: center;
+    text-transform: uppercase;
+    word-wrap: initial;
+}
+
+#lobby {
+    background: url("/static/img/World.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 50%;
+    min-height: 50%;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+#login {
+    background: url("/static/img/login-bg.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 50%;
+    min-height: 50%;
+    margin: auto;
+}
+
+#register-bg {
+    background: url("/static/img/register-bg.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 50%;
+    min-height: 50%;
+    margin: auto;
+}
+
+.lobby-card {
+    width: 18rem; 
+    margin-right: 3px; 
+    margin-top: 12%;
+    margin-left: 10px;
+    border: 2px solid aliceblue;
+    border-radius: 3px;
+}
+
+#room-create {
+    background: url("/static/img/world-map-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 50%;
+    min-height: 50%;
+    margin: auto;
+}
+
+#createRoom { 
+    margin-top: 8%;
+}
+
+#chat_textarea {
+    background: #e5e6e6;
+    width: 75%;
+    height: 7vh;
+    border: 1px solid #3399ff;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+    resize: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#chat_box{
+    border: 1px solid #0073e6;
+    background-color: #3399ff5c;
+    border-radius: 3px;
+}
+
+#submit_message{
+    height: 7vh;
+    padding: 0;
+    margin: 0;
+    width: 23%;
+    margin-top: 10px;
+    margin-left: 2%;
+    margin-bottom: 10px;
+}
+
+#chat {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    position: absolute;
+    bottom: 0;
+    top: 110vh;;
+    right: 1vw;
+    z-index: 4;
+    width: 23vw;
+}
+
+#chat_box{
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 635px;
+    padding: 15px;
+}
+
+.message {
+    width: 100%;
+    background: #3399ff;
+    border-radius: 8px;
+    font-size: 18px;
+    font-size: 18px;
+    border: 1px solid #c5c6c7;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+
+#start-game {
+    width: 100%;
+    margin-left: 1%;
+    margin-top: 13%;
+    margin-bottom: 3px;
+}
+
+.user-img {
+    border-bottom: 2px solid black;
+}
+
+.about-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+.asw010 {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.about-a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.about-a:hover{
+    opacity: 0.7;
+}
+
+#aboutUs{
+    margin-left: 9vw;
+    margin-top: 20vh;
+}
+
+#rules{
+    background: url("/static/img/rules-bg.jpg") center repeat-y fixed;
+    background-size: cover;
+    margin: auto;
+    color: #ffffff;
+}
+
+#titles{
+    padding: 30px 0;
+    text-align: center;
+}
+
+#game-rules{
+    margin: 50px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#game-view p{
+    margin: 50px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#game-view h2{
+    text-align:center; 
+}
+
+#game-view img {
+    margin-top: 10px;
+    margin-left: 2vw;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Confirmed{% endblock title %}
+{% block content %}
+{% if reg_status == "success" %}
+<p class="alert alert-success">Thank you for your email confirmation. Now you can login your account.</p>
+{% else %}
+<div class="alert alert-danger">
+    <h1>Expired registration activation link</h1>
+    <p>The registration activation link is invalid, it's possible that it has already been used or it has expired.</p>
+</div>
+{% endif %}
+{% endblock content %}

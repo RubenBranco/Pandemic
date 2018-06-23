@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Register{% endblock title %}
+{% block headlinks %}
+<link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
+<script src="{% static 'js/select2.min.js' %}"></script>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock headlinks %}
+{% block content %}
+<div id="register-bg">
+    <div id="container_home" class="card register">
+        <div class="card-body card-login" id="RegForm" style="margin-top: -13%;">
+            <form method="post" id="register_form" action="{% url 'register' %}">
+                {% csrf_token %}
+                {% for field in user_form %}
+                    {{ field.label_tag}}
+                    {{ field }}
+                    {% for error in field.errors %}
+                        <p class="alert alert-danger reg-alert">{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+                {% for field in profile_form %}
+                    {% if field.label != "Image" %}
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <p class="alert alert-danger reg-alert">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                <input type="submit" />
+            </form>
+            <div id="newUser">
+                <span class="text-aliceblue" id="switchPage">Already have an account? <a href="{% url 'login' %}" class="url">Sign in</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

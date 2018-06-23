@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="room-create">
+    <div id="createRoom" class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group text-aliceblue">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+                {% for error in field.errors %}
+                    <p class="alert alert-danger">{{ error }}</p>
+                {% endfor %} 
+            {% endfor %}
+            <button class="btn btn-success center" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
