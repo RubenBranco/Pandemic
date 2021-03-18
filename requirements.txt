@@ -22,7 +22,7 @@ kombu==4.1.0
 lxml==4.2.1
 Markdown==2.6.11
 MarkupSafe==1.0
-Pillow==5.0.0
+Pillow==8.1.1
 Pygments==2.2.0
 pytz==2018.3
 redis==2.10.6
