@@ -23,7 +23,7 @@ lxml==4.2.1
 Markdown==2.6.11
 MarkupSafe==1.0
 Pillow==5.0.0
-Pygments==2.2.0
+Pygments==2.7.4
 pytz==2018.3
 redis==2.10.6
 requests==2.18.4
